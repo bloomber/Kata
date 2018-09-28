@@ -6,23 +6,46 @@ using System.Threading.Tasks;
 
 namespace csharp
 {
-    public enum TypeOfRule
-    {
-        Quality,
-        SellIn,
-        BornMaxQuality,
-        BornMinQuality,
-        OutOfDate
-    }
     public class Rule
     {
+        public enum TypeOfRule
+        {
+            ChangeQuality,
+            ReturnQuality0
+        }
 
-        public string NameOfProduct { get; set; }
-        public char Operator { get; set; }
+        public enum TypeOfOperator
+        {
+            None,
+            BiggerEqual,
+            SmallerEqual
+        }
+
+
+        #region private and public fields
         public int SellInValue { get; set; }
-
-        public int QualityValue { get; set; }
+        public int QualityPoint { get; set; }
 
         public TypeOfRule TypeOfRuleValue { get; set; }
+        public TypeOfOperator TypeOfOperatorValue { get; set; }
+
+        #endregion
+
+
+        #region Constructor
+        public Rule(int pSellInValue, int pQualityPoint, TypeOfRule pTypeOfRuleValue, TypeOfOperator pTypeOfOperatorValue)
+        {
+            SellInValue = pSellInValue;
+            QualityPoint = pQualityPoint;
+            TypeOfOperatorValue=pTypeOfOperatorValue;
+            TypeOfRuleValue = pTypeOfRuleValue;
+        }
+
+        #endregion
+
+
+        #region Functions
+
+        #endregion
     }
 }
